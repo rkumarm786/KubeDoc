@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: database
+  name: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: database
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.31.2 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/test-app-test-network: "true"
+        io.kompose.service: database
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_PASSWORD
+              value: raj
+            - name: POSTGRES_USER
+              value: postgres
+          image: test-app-database
+          name: database-container
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5432
+              hostPort: 5432
+              protocol: TCP
+          resources: {}
+      restartPolicy: Always
+status: {}

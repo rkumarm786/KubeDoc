@@ -55,6 +55,10 @@ This README outlines the steps to set up and run three Docker containers for our
 - **Run Container**:
   `docker run -p 8080:80 --network test-network frontend-app`
 
+### Build docker compose
+
+- `docker-compose up --build`
+
 ## Accessing the Applications
 
 - Frontend: [http://localhost:8080](http://localhost:8080)
@@ -73,3 +77,7 @@ CMD
 
 ENTRYPOINT
 -Similar to CMD, but used to set the container to run as an executable.
+
+## <span style="color:red">OPEN ISSUE</span>
+
+- database init.sql file is not working and we have to manually run the sql commands to create table and 1 record
