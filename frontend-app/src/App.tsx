@@ -6,8 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 
 const API_URL =
   import.meta.env.VITE_INSIDE_DOCKER == "true"
-    ? "http://host.docker.internal:3000"
-    : "http://localhost:3000";
+    ? "http://localhost:8080/api/"
+    : "http://localhost:8080/api/";
 
 function App() {
   const [count, setCount] = useState(0);
